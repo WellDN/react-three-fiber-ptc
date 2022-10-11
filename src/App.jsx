@@ -1,8 +1,13 @@
-import  {Box}  from './animation'
+import { useFrame } from "@react-three/fiber";
 
- function App() {
-return(
-< Box/>
-)
+
+function Animation(props) {
+    const ref = useRef();
+
+    useFrame((state, delta) => (ref.current.rotation.x += delta))
 }
-export default App
+
+export default function App(){
+
+    return
+}
