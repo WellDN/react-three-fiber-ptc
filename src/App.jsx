@@ -1,13 +1,25 @@
-import { useFrame } from "@react-three/fiber";
+import { useRef } from 'react'
+import { Canvas } from "@react-three/fiber";
 
-
-function Animation(props) {
+function Box(props) {
     const ref = useRef();
 
-    useFrame((state, delta) => (ref.current.rotation.x += delta))
+    return (        
+    <mesh
+    {...props}
+    ref={ref}
+    scale={1}
+    >
+     <planeBufferGeometry attach="geometry" args={[visualViewport.width, visualViewport.height]} />
+        <meshBasicMaterial color='pink' />
+    </mesh>
+)
 }
 
-export default function App(){
-
-    return
+export default function App() {
+    return (
+        <Canvas>
+      <Box position={[0, 0, 1]} />
+        </Canvas>
+    )
 }
